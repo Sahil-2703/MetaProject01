@@ -10,18 +10,18 @@ contract Project1
 
     mapping(address => uint) public balances;
 
-    function mint(address to, uint value) public 
+    function mint(address user, uint value) public 
     {
         totalSupply += value;
-        balances[to] += value;
+        balances[user] += value;
     }
 
-    function burn(address from, uint value) public
+    function burn(address owner, uint value) public
     {
-        if(balances[from]>=value)
+        if(balances[owner]>=value)
         {
             totalSupply -= value;
-            balances[from] -= value;
+            balances[owner] -= value;
         }
     }
 }
